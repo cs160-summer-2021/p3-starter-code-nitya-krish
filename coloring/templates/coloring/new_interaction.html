@@ -11,23 +11,35 @@
 
 	<style type="text/css">
 		#color-palette {
-			width: 300px;
+			/* width: 300px; */
+			height: 50%;
 			background-color: #f1f1f1;
 			display: flex;
 			flex-wrap: wrap;
+			flex-direction: column;
 			position: absolute;
-			top: 0;
+			top: 50px;
+			left: 90%
 		}
 
 		.swatch {
 			width: 24px;
 			height: 24px;
-			-moz-border-radius: 12px;
+			/* -moz-border-radius: 12px;
 			-webkit-border-radius: 12px;
-			border-radius: 12px;
+			 border-radius: 12px; */
 			margin: 3px;
 		}
 
+		.swatch-clicked {
+			width: 24px;
+			height: 24px;
+			-moz-border-radius: 12px;
+			-webkit-border-radius: 12px;
+			 border-radius: 12px;
+			margin: 3px;
+		}
+		
 		#myCanvas {
 			padding-left: 0;
 		    padding-right: 0;
@@ -61,7 +73,7 @@
 				tool.onMouseDown = function (event) {
 				    var hit = mandala.item.hitTest(event.point, { tolerance: 10, fill: true });
 				    if (hit) {
-				    		// Color pallette keeps track of the full history of colors, though we
+				    		// Color palette keeps track of the full history of colors, though we
 				    		// only color in with the most-recent color.
 				        hit.item.fillColor = cp.history[cp.history.length - 1];
 				    }
@@ -121,5 +133,6 @@
 
 	<canvas id="myCanvas" width="750px" height="750px"></canvas>
 	<div id="color-palette"></div>
+	<button></button>
 </body>
 </html>
