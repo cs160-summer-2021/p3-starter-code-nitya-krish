@@ -75,7 +75,14 @@
 				    if (hit) {
 				    		// Color palette keeps track of the full history of colors, though we
 				    		// only color in with the most-recent color.
-				        hit.item.fillColor = cp.history[cp.history.length - 1];
+						var white = hit.item.fillColor.red === 1 && hit.item.fillColor.blue === 1 && hit.item.fillColor.green === 1;
+						// console.log(white);
+						if (white) {
+							hit.item.fillColor = cp.history[cp.history.length - 1];
+						} else {
+							hit.item.fillColor = "#ffffff";
+						}
+				        
 				    }
 				}
 			}
@@ -90,10 +97,17 @@
 					$swatch.click(function(){
 						// add color to the color palette history
 					  	cp.history.push($(this).css("background-color"));
+						// console.log(this.className);
+						if (this.className === "swatch") {
+							this.className = "swatch-clicked";
+						} else {
+							this.className = "swatch";
+						}
 					});
 					cp.$container.append($swatch);
 				}
 			}
+
 
 			// loads a set of colors from a json to create a color palette
 			function getColorsCreatePalette(){
@@ -123,7 +137,12 @@
 
 				});
 			}
+			
+			function fullScreen(){
+				<meta http-equiv="fullscreen" content="0" url = "../../static/coloring/templates/coloring/fullscreen.html" /> 
+			}
 
+			
 			// Set up the mandala interactivity.
 			init(true);
 		}
@@ -133,6 +152,9 @@
 
 	<canvas id="myCanvas" width="750px" height="750px"></canvas>
 	<div id="color-palette"></div>
-	<button></button>
+	<button onclick = "fullScreen()"> <img src = "../../static/coloring/images/fullscreen.png" alt = "fullscreen" 
+		width = 24px height = 24px> </button> 
+	<button onclick = "reset()"> <img src = "../../static/coloring/images/reset.png" alt = "reset" 
+		width = 24px height = 24px> </button> 
 </body>
 </html>
