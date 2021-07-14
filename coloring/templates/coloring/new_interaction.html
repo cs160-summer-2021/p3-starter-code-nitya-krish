@@ -139,7 +139,7 @@
 			}
 			
 			function fullScreen(){
-				<meta http-equiv="fullscreen" content="0" url = "../../static/coloring/templates/coloring/fullscreen.html" /> 
+				// <meta http-equiv="fullscreen" content="0" url = "../../static/coloring/templates/coloring/fullscreen.html" /> 
 			}
 
 			
@@ -154,7 +154,8 @@
 	<div id="color-palette"></div>
 	<button onclick = "fullScreen()"> <img src = "../../static/coloring/images/fullscreen.png" alt = "fullscreen" 
 		width = 24px height = 24px> </button> 
-	<button onclick = "reset()"> <img src = "../../static/coloring/images/reset.png" alt = "reset" 
+	<button onclick = "window.location.reload();"> <img src = "../../static/coloring/images/reset.png" alt = "reset" 
 		width = 24px height = 24px> </button> 
+
 </body>
 </html>
