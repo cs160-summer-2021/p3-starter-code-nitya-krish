@@ -8,6 +8,3 @@ def demo(request):
 
 def new_interaction(request):
     return render(request, 'coloring/new_interaction.html')
-
-def fullscreen(request):
-    return render(request, 'coloring/fullscreen.html')

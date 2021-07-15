@@ -140,10 +140,6 @@
 				});
 			}
 			
-			function fullScreen(){
-				// <meta http-equiv="fullscreen" content="0" url = "../../static/coloring/templates/coloring/fullscreen.html" /> 
-			}
-
 			
 			// Set up the mandala interactivity.
 			init(true);
@@ -165,16 +161,28 @@
 			});
 			cp.$container.append($swatch);
 		}
+
+		function showPalette() {
+            var x = document.getElementById("color-palette");
+            if (x.style.display === "none") {
+                x.style.display = "flex";
+            } else {
+                x.style.display = "none";
+
+            }
+        }
+
 	</script>
 </head>
 <body>
 
 	<canvas id="myCanvas" width="750px" height="750px"></canvas>
 	<div id="color-palette"></div>
-	<button onclick = "location.href = 'fullscreen'"> <img src = "../../static/coloring/images/fullscreen.png" alt = "fullscreen"
+	<button onclick = "showPalette()"> <img src = "../../static/coloring/images/fullscreen.png" alt = "fullscreen"
         width = 24px height = 24px></button>
 	<button onclick = "window.location.reload();"> <img src = "../../static/coloring/images/reset.png" alt = "reset" 
 		width = 24px height = 24px> </button> 
 	<input id = "custom-color" type="color" onclick="addColor()">
+
 </body>
 </html>
