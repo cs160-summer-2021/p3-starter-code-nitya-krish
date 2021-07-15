@@ -50,19 +50,18 @@
 	</style>
 
 	<script type="text/javascript" canvas="canvas">
-		let canvas, mandala, cp;
 		window.onload = function() {
-			canvas = document.getElementById('myCanvas');
+			var canvas = document.getElementById('myCanvas');
 
 			// coloring page
-			mandala = {
+			var mandala = {
 				item: null,
 				lastClicked: null,
 				filePath: '/static/coloring/images/mandala-freepik.svg'
 			};
 
 			// color palette
-			cp = {
+			var cp = {
 				history: ["#000000"], // black selected by default
 				options: [],
 				$container: $('#color-palette')
@@ -139,30 +138,8 @@
 				});
 			}
 			
-			function fullScreen(){
-				 // <meta http-equiv="fullscreen" content="0" url = "../../static/coloring/templates/coloring/fullscreen.html" /> 
-			}
-
-			
 			// Set up the mandala interactivity.
 			init(true);
-		}
-
-		function addColor() {
-			console.log(document.getElementById("custom-color").value);
-			var color = document.getElementById("custom-color").value;
-			var $swatch = $("<div>").css("background-color", color).addClass("swatch");
-			$swatch.click(function(){
-				// add color to the color palette history
-				cp.history.push($(this).css("background-color"));
-				// console.log(this.className);
-				if (this.className === "swatch") {
-					this.className = "swatch-clicked";
-				} else {
-					this.className = "swatch";
-				}
-			});
-			cp.$container.append($swatch);
 		}
 	</script>
 </head>
@@ -170,10 +147,10 @@
 
 	<canvas id="myCanvas" width="750px" height="750px"></canvas>
 	<div id="color-palette"></div>
-	<button onclick = "fullScreen()"> <img src = "../../static/coloring/images/fullscreen.png" alt = "fullscreen"
+	<button onclick = "location.href = 'fullscreen'"> <img src = "../../static/coloring/images/fullscreen.png" alt = "fullscreen"
 		width = 24px height = 24px></button>
 	<button onclick = "window.location.reload();"> <img src = "../../static/coloring/images/reset.png" alt = "reset" 
 		width = 24px height = 24px> </button> 
-	<input id = "custom-color" type="color" onclick="addColor()">
+
 </body>
 </html>
